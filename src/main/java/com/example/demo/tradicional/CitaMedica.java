@@ -39,14 +39,19 @@ public class CitaMedica {
 	        	this.paciente = pacienteTE;
 	        	
 	        	System.out.println("Paciente con Descuento");
-	        } else {
+	        }   if(tipo.equals("n")) {
 	        	PacienteNinio pacienteNinio = new PacienteNinio();
 	        	pacienteNinio.setPesoNacimiento("5");
 	        
 	        	pacienteNinio.setTipo("N");
 	        	
 	        	this.paciente = pacienteNinio;
-	        	System.out.println("Paciente sin Descuento");
+	        	System.out.println("Paciente sin Descuento"); 
+	        }else {
+	        	PacienteCancer pc=new PacienteCancer();
+	        	this.paciente = pc;
+	        	System.out.println("paciente con descuento 30%");
+	        	
 	        }
 	        
 	        this.paciente.setNombre(nombrePaciente);
