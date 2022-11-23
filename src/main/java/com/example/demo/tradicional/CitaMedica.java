@@ -2,144 +2,109 @@ package com.example.demo.tradicional;
 
 import java.time.LocalDateTime;
 
-import javax.annotation.processing.SupportedSourceVersion;
-
 public class CitaMedica {
-/* taller 4 yf*/
-	   private String numero;
-	    private LocalDateTime fechaCita;
-	    private LocalDateTime fechaAgenda;
-	    private Medico medico;
-	    private Paciente paciente;
-	    private String ced_medico;
 
+	private String numero;
+	private LocalDateTime fechaCita, fechaAgenda;
+	private Medico medico;
+	private Paciente paciente;
 
-	   public void agendar(String numero, LocalDateTime fechaCita, String nombreMedico, String cedMedico,
-	            String nombrePaciente, String cedulaPaciente, String tipo) {
+	//Comentario taller 4
 
-	       	this.numero=numero;
-	        this.fechaCita=fechaCita;
-	        this.fechaAgenda = LocalDateTime.now();
-	        
-	        Medico medObjeto = new Medico();
-	        medObjeto.setCedula(cedMedico);
-	        medObjeto.setNombre(nombreMedico);
-	        
-	        this.medico= medObjeto;
-	       
-	        //Tercera edad TE ninio n
-	        if(tipo.equals("TE")) {
-	        	PacienteTerceraEdad pacienteTE = new PacienteTerceraEdad();
-	        	pacienteTE.setCodigoIESS("234234");
-	        
-	        	pacienteTE.setTipo("TE");
-	        	
-	        	
-	        	
-	        	this.paciente = pacienteTE;
-	        	
-	        	System.out.println("Paciente con Descuento");
-	        }   if(tipo.equals("n")) {
-	        	PacienteNinio pacienteNinio = new PacienteNinio();
-	        	pacienteNinio.setPesoNacimiento("5");
-	        
-	        	pacienteNinio.setTipo("N");
-	        	
-	        	this.paciente = pacienteNinio;
-	        	System.out.println("Paciente sin Descuento"); 
-	        }else {
-	        	PacienteCancer pc=new PacienteCancer();
-	        	this.paciente = pc;
-	        	System.out.println("paciente con descuento 30%");
-	        	
-	        }
-	        
-	        this.paciente.setNombre(nombrePaciente);
-	        this.paciente.setCedula(cedulaPaciente);
-	       
-	        
-	        this.guardarCita(this);
-	        
-	    }
+	void agendar(String numero, LocalDateTime fechac, String nombreMed, String cedMed, String nombrePaciente,
+			String cedulaPaciente, String tipo) {
 
+		this.numero = numero;
+		this.fechaCita = fechac;
+		this.fechaAgenda = LocalDateTime.now();
 
+		Medico medico = new Medico();
+		medico.setCedula(cedMed);
+		medico.setNombre(nombreMed);
+		this.medico = medico;
 
-	   private void guardarCita(CitaMedica cita) {
-	        
-	        //Insertar en la base de datos, guardar cita
-	        System.out.println(cita);
-	    }
-	    
-	    @Override
-	    public String toString() {
-	        return "CitaMedica [numero=" + numero + ", fechaCita=" + fechaCita + ", fechaAgenda=" + fechaAgenda
-	                + ", medico=" + medico + ", paciente=" + paciente + ", ced_medico=" + ced_medico + "]";
-	    }
+		// Tercera edada TE niño es N
+		if (tipo.equals("TE")) {
+			PacienteTerceraEdad pacienteTE = new PacienteTerceraEdad();
+			pacienteTE.setCodigoIESS("12432");
+			pacienteTE.setTipo("TE");
 
+			this.paciente = pacienteTE;
+			
+		System.out.println("Paciente con descuento");	
+		if(tipo.equals("N")) {
+			PacienteNinio pacienteNinio = new PacienteNinio();
+			pacienteNinio.setPesoNacimiento(5);
+			pacienteNinio.setTipo("N");
 
+			this.paciente = pacienteNinio;
+			System.out.println("Paciente Ninio sin descuento");	
+		}
+		} else {
+			PacienteCancer pc = new PacienteCancer();
+			this.paciente = pc;
+			
+			System.out.println("Paciente Cancer sin descuento");	
 
-	   // SET y GET
-	    public String getNumero() {
-	        return numero;
-	    }
+		}
 
+		this.paciente.setCedula(cedulaPaciente);
+		this.paciente.setNombre(nombrePaciente);
+		this.guardarCita(this);
 
+	}
 
-	   public void setNumero(String numero) {
-	        this.numero = numero;
-	    }
+	@Override
+	public String toString() {
+		return "CitaMedica [numero=" + numero + ", fechaCita=" + fechaCita + ", fechaAgenda=" + fechaAgenda
+				+ ", medico=" + medico + ", paciente=" + paciente + "]";
+	}
 
+	private void guardarCita(CitaMedica cita) {
+		// funcion INSERT
+		System.out.println(cita);
 
+	}
 
-	   public LocalDateTime getFechaCita() {
-	        return fechaCita;
-	    }
+	// GETTER & SETTER
+	public String getNumero() {
+		return numero;
+	}
 
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 
+	public LocalDateTime getFechaCita() {
+		return fechaCita;
+	}
 
-	   public void setFechaCita(LocalDateTime fechaCita) {
-	        this.fechaCita = fechaCita;
-	    }
+	public void setFechaCita(LocalDateTime fechaCita) {
+		this.fechaCita = fechaCita;
+	}
 
+	public LocalDateTime getFechaAgenda() {
+		return fechaAgenda;
+	}
 
+	public void setFechaAgenda(LocalDateTime fechaAgenda) {
+		this.fechaAgenda = fechaAgenda;
+	}
 
-	   public LocalDateTime getFechaAgenda() {
-	        return fechaAgenda;
-	    }
+	public Medico getMedico() {
+		return medico;
+	}
 
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
 
+	public Paciente getPaciente() {
+		return paciente;
+	}
 
-	   public void setFechaAgenda(LocalDateTime fechaAgenda) {
-	        this.fechaAgenda = fechaAgenda;
-	    }
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
 
-
-
-	   public Medico getMedico() {
-	        return medico;
-	    }
-
-
-
-	   public void setMedico(Medico medico) {
-	        this.medico = medico;
-	    }
-
-
-
-	   public Paciente getPaciente() {
-	        return paciente;
-	    }
-
-
-
-	   public void setPaciente(Paciente paciente) {
-	        this.paciente = paciente;
-	    }
-
-
-	
-	
-	
-	
 }

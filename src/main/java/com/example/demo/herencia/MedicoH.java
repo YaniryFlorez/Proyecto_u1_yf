@@ -1,6 +1,6 @@
-package com.example.demo.tradicional;
+package com.example.demo.herencia;
 
-public class Medico {
+public class MedicoH {
 
 	private String nombre, cedula;
 	

@@ -1,6 +1,6 @@
-package com.example.demo.tradicional;
+package com.example.demo.herencia;
 
-public class PacienteNinio extends Paciente{
+public class PacienteNinioH extends PacienteH{
 	
 	private int pesoNacimiento;
 
@@ -17,5 +17,8 @@ public class PacienteNinio extends Paciente{
 		return super.toString() + " PacienteNinio [pesoNacimiento=" + pesoNacimiento + "]";
 	}
 
-	
+	public Integer calcularDescuento() {
+		System.out.println("Paciente Ninio con el 10% descuento");
+		return 10;
+	}
 }

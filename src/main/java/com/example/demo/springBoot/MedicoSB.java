@@ -1,6 +1,8 @@
-package com.example.demo.herencia;
+package com.example.demo.springBoot;
+import org.springframework.stereotype.Component;
 
-public class Medicoh {
+@Component
+public class MedicoSB {
 
 	private String nombre, cedula;
 	
@@ -24,8 +26,7 @@ public class Medicoh {
 
 	@Override
 	public String toString() {
-		return "Medicoh [nombre=" + nombre + ", cedula=" + cedula + "]";
+		return "Medico [nombre=" + nombre + ", cedula=" + cedula + "]";
 	}
-	
 	
 }

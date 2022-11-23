@@ -1,18 +1,24 @@
-package com.example.demo.tradicional;
+package com.example.demo.herencia;
 
-public class Paciente {
+public class PacienteH {
 	
 	private String nombre, cedula, tipo;
 	
+	protected Integer calcularDescuento() {
+		System.out.println("Sin descuento");
+		return 0;
+	}
 	
+	
+	
+	//GETTER & SETTER
+
 	@Override
 	public String toString() {
-		return "Paciente [nombre=" + nombre + ", cedula=" + cedula + "]";
+		return "PacienteH [nombre=" + nombre + ", cedula=" + cedula + ", tipo=" + tipo + "]";
 	}
 
 
-	
-	//GETTER & SETTER
 
 	protected String getTipo() {
 		return tipo;

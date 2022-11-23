@@ -1,6 +1,6 @@
-package com.example.demo.tradicional;
+package com.example.demo.herencia;
 
-public class PacienteTerceraEdad extends Paciente {
+public class PacienteTerceraEdadH extends PacienteH {
 	
 	private String codigoIESS;
 
@@ -16,5 +16,9 @@ public class PacienteTerceraEdad extends Paciente {
 	public String toString() {
 		return super.toString() + " PacienteTerceraEdad [codigoIESS=" + codigoIESS + "]";
 	}
-
+	
+	public Integer calcularDescuento() {
+		System.out.println("Paciente con descuento del 20%");
+		return 20;
+	}
 }
