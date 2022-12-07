@@ -1,5 +1,7 @@
 package com.example.demo.banco.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.banco.modelo.Transferencia;
@@ -29,6 +31,12 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Transferencia> buscarTodos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
