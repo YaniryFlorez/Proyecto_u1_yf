@@ -15,7 +15,7 @@ import com.example.demo.banco.service.ITransferenciaService;
 @SpringBootApplication
 public class ProyectoU1ScApplication implements CommandLineRunner {
 
-	@Autowired
+	@Autowired  //inyeccion de control
 	private ICuentaBancariaService bancariaService;
 
 	@Autowired
