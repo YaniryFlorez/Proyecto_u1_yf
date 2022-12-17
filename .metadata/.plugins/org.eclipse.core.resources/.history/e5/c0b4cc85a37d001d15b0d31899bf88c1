@@ -1,0 +1,15 @@
+package com.example.demo.ejercicio1.repository;
+
+import com.example.demo.ejercicio1.modelo.Matricula;
+
+public class MatriculaRepositoryImpl implements IMatriculaRepository{
+
+	@Override
+	public void insertar(Matricula matricula) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

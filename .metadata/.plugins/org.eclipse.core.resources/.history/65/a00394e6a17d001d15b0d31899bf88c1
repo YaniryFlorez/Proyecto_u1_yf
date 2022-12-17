@@ -1,0 +1,18 @@
+package com.example.demo.ejercicio1.repository;
+
+import com.example.demo.ejercicio1.modelo.Propietario;
+import com.example.demo.ejercicio1.modelo.Vehiculo;
+
+public interface IPropietarioRepository {
+
+
+	// CRUD
+	public Propietario buscar(String cedula);
+
+	//
+	public void actualizar(String cedula);
+
+	public void insertar(String cedula);
+
+	public void borrar(String cedula); 
+}
