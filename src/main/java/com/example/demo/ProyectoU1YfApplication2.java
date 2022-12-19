@@ -12,6 +12,11 @@ import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.banco.modelo.Transferencia;
 import com.example.demo.banco.service.ICuentaBancariaService;
 import com.example.demo.banco.service.ITransferenciaService;
+import com.example.demo.clinica.modelo.Doctor;
+import com.example.demo.clinica.modelo.Paciente;
+import com.example.demo.clinica.service.ICitaMedicaService;
+import com.example.demo.clinica.service.IDoctorService;
+import com.example.demo.clinica.service.IPacienteService;
 import com.example.demo.ejercicio1.modelo.Propietario;
 import com.example.demo.ejercicio1.modelo.Vehiculo;
 import com.example.demo.ejercicio1.service.IMatriculaService;
@@ -25,19 +30,19 @@ import com.example.demo.spring.boot.PacienteCancerSB;
 import com.example.demo.spring.boot.PacienteTerceraEdadSB;
 
 @SpringBootApplication
-public class ProyectoU1YfApplication {
+public class ProyectoU1YfApplication2 {
 	@Autowired
-	private IVehiculoService iVehiculoService;
+	private ICitaMedicaService citaMedicaService;
 	
 	@Autowired
-	private IPropietarioService iPropietarioService;
+	private IPacienteService pacienteService;
 	
 	@Autowired
-	private IMatriculaService iMatriculaService;
+	private IDoctorService doctorService;
 	
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoU1YfApplication.class, args);
+		SpringApplication.run(ProyectoU1YfApplication2.class, args);
 	
 	
 	}
@@ -47,32 +52,31 @@ public class ProyectoU1YfApplication {
 		System.out.println("SPRING BOOT");
 		
 		// 1 manera
+		Paciente pac = new Paciente();
+		pac.setCedula("12345");
+		pac.setNombre("Maria Jose");
+		pac.setApellido("Lopez");
+		this.pacienteService.crear(pac);
 		
-		Vehiculo vehi = new Vehiculo();
-		vehi.setMarca("Toyta");
-		vehi.setPlaca("PDF12654");
-		vehi.setPrecio(new BigDecimal(20000));
-		vehi.setTipo("P");
-		this.iVehiculoService.crear(vehi);
 		
 		//una opcion
-		
-		vehi.setPrecio(new BigDecimal(10000));
+		/*
+		pac.setNombre();
 		vehi.setMarca("Toyota");
-		this.iVehiculoService.modificar(vehi);
+		this.iVehiculoService.modificar(vehi);   */
 		
 		// 2 manera
 		
+		Doctor doc =new Doctor();
+		doc.setCedula("54321");
+		doc.setNombre("Carlos");
+	    this.doctorService.guardar(doc);
 		
-		Propietario propietario = new Propietario();
-		propietario.setApellido("Colon");
-		propietario.setCedula("154774566");
-		propietario.setFechaNacimiento(LocalDateTime.of(1978, 8,31,12,35));
-		propietario.setNombre("Edison");
-		 this.iPropietarioService.guardar(propietario);
+		
 		
 		//3 manera
-		 this.iMatriculaService.matricular("15774566", "PDF1265");
+	    this.citaMedicaService.generarCita("12345", "54321");
+		
 		
 		
 		

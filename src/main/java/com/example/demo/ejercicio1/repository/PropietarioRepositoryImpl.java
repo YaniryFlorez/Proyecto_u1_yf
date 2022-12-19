@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.ejercicio1.modelo.Propietario;
 
 @Repository
-public class PropietarioRepoImpl implements IPropietarioRepository {
+public class PropietarioRepositoryImpl implements IPropietarioRepository {
 
 	
 	private static List<Propietario> base = new ArrayList<>();
