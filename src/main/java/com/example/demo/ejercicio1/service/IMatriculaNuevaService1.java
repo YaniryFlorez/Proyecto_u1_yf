@@ -1,6 +1,8 @@
 package com.example.demo.ejercicio1.service;
 
+import java.math.BigDecimal;
+
 public interface IMatriculaNuevaService1 {
 
-	public void matricular(String cedula, String placa);
+	public void matricular( BigDecimal precio);
 }
