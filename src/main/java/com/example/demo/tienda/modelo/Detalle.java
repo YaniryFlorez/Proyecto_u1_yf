@@ -3,12 +3,10 @@ package com.example.demo.tienda.modelo;
 import java.math.BigDecimal;
 
 public class Detalle {
-	
 	private Producto producto;
 	private String numero;
 	private Integer cantidad;
 	private BigDecimal subTotal;
-	
 	
 	//Set y get
 	public Producto getProducto() {
@@ -40,12 +38,6 @@ public class Detalle {
 		return "Detalle [producto=" + producto + ", numero=" + numero + ", cantidad=" + cantidad + ", subTotal="
 				+ subTotal + "]";
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 

@@ -1,21 +1,11 @@
 package com.example.demo.tienda.modelo;
 
 public class Cliente {
-	
 	private String cedula;
 	private String nombre;
 	private String tipo;
 	
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", tipo=" + tipo + "]";
-	}
-	
-	
-	//Metodos set y get
+	//Set y get
 	public String getCedula() {
 		return cedula;
 	}
@@ -34,8 +24,10 @@ public class Cliente {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	@Override
+	public String toString() {
+		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+	}
 	
 	
-	
-
 }

@@ -8,10 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.banco.modelo.CuentaBancaria;
-import com.example.demo.banco.modelo.Transferencia;
-import com.example.demo.banco.service.ICuentaBancariaService;
-import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.clinica.modelo.Doctor;
 import com.example.demo.clinica.modelo.Paciente;
 import com.example.demo.clinica.service.ICitaMedicaService;
@@ -22,24 +18,16 @@ import com.example.demo.ejercicio1.modelo.Vehiculo;
 import com.example.demo.ejercicio1.service.IMatriculaService;
 import com.example.demo.ejercicio1.service.IPropietarioService;
 import com.example.demo.ejercicio1.service.IVehiculoService;
-import com.example.demo.herencia.PacienteCancerH;
-import com.example.demo.herencia.PacienteTerceraEdadH;
-import com.example.demo.spring.boot.CitaMedicaSB;
-import com.example.demo.spring.boot.MedicoSB;
-import com.example.demo.spring.boot.PacienteCancerSB;
-import com.example.demo.spring.boot.PacienteTerceraEdadSB;
 
 @SpringBootApplication
 public class ProyectoU1YfApplication2 {
+
 	@Autowired
-	private ICitaMedicaService citaMedicaService;
-	
+	private IVehiculoService vehiculoService;
 	@Autowired
-	private IPacienteService pacienteService;
-	
+	private IPropietarioService ipropietarioService;
 	@Autowired
-	private IDoctorService doctorService;
-	
+	private IMatriculaService matriculaService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1YfApplication2.class, args);
@@ -48,40 +36,33 @@ public class ProyectoU1YfApplication2 {
 	}
 
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("SPRING BOOT");
-		
-		// 1 manera
-		Paciente pac = new Paciente();
-		pac.setCedula("12345");
-		pac.setNombre("Maria Jose");
-		pac.setApellido("Lopez");
-		this.pacienteService.crear(pac);
-		
-		
-		//una opcion
-		/*
-		pac.setNombre();
+
+		// Matricula
+
+		// Opcion1
+		Vehiculo vehi = new Vehiculo();
+		vehi.setMarca("Tocyota");
+		vehi.setPlaca("PSGD2312");
+		vehi.setPrecio(new BigDecimal(20000));
+		vehi.setTipo("P");
+		this.vehiculoService.crear(vehi);
 		vehi.setMarca("Toyota");
-		this.iVehiculoService.modificar(vehi);   */
-		
-		// 2 manera
-		
-		Doctor doc =new Doctor();
-		doc.setCedula("54321");
-		doc.setNombre("Carlos");
-	    this.doctorService.guardar(doc);
-		
-		
-		
-		//3 manera
-	    this.citaMedicaService.generarCita("12345", "54321");
-		
-		
-		
-		
-		
-		
+		vehi.setPrecio(new BigDecimal(15000));
+		this.vehiculoService.modificar(vehi);
+
+		// Opcion2
+		Propietario propietario = new Propietario();
+		propietario.setApellido("Ruiz");
+		propietario.setNombre("Luis carlos");
+		propietario.setCedula("1241587458");
+		propietario.setFechaNaciemiento(LocalDateTime.of(1999, 12, 12, 12, 12));
+		ipropietarioService.guardar(propietario);
+
+		// Opcion 3
+		this.matriculaService.matricular("1241587458", "PSGD2312");
+
 	}
+
+
 
 }

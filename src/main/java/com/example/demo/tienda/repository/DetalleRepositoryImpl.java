@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.tienda.modelo.Detalle;
 
 @Repository
-public class DetalleRepoImpl implements IDetalleRepository{
+public class DetalleRepositoryImpl implements IDetalleRepository {
 
-	private static List<Detalle> baseDeDatos = new ArrayList<>();
-	
+	private static List<Detalle> baseDatos = new ArrayList<>();
+
 	@Override
 	public void insertar(Detalle detalle) {
 		// TODO Auto-generated method stub
-		baseDeDatos.add(detalle);
+		baseDatos.add(detalle);
 	}
 
 }

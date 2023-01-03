@@ -6,22 +6,15 @@ import org.springframework.stereotype.Service;
 import com.example.demo.tienda.modelo.Cliente;
 import com.example.demo.tienda.repository.IClienteRepository;
 
-
 @Service
 public class ClienteServiceImpl implements IClienteService {
-    
-	
+
 	@Autowired
 	private IClienteRepository clienteRepository;
 
 	@Override
 	public void agregar(Cliente cliente) {
 		// TODO Auto-generated method stub
-		
-		this.clienteRepository.insert(cliente);
+		this.clienteRepository.insertar(cliente);
 	}
-	
-
-
-
 }

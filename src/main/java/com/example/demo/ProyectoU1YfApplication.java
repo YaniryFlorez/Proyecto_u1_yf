@@ -67,7 +67,7 @@ public class ProyectoU1YfApplication {
 		Propietario propietario = new Propietario();
 		propietario.setApellido("Colon");
 		propietario.setCedula("154774566");
-		propietario.setFechaNacimiento(LocalDateTime.of(1978, 8,31,12,35));
+		propietario.setFechaNaciemiento(LocalDateTime.of(1978, 8,31,12,35));
 		propietario.setNombre("Edison");
 		 this.iPropietarioService.guardar(propietario);
 		

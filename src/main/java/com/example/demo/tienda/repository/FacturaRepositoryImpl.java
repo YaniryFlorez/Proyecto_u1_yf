@@ -8,15 +8,14 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.tienda.modelo.Factura;
 
 @Repository
-public class FacturaRepoImpl implements IFacturaRepository {
+public class FacturaRepositoryImpl implements IFacturaRepository {
 
-	
-	public static List<Factura> baseDeDatos = new ArrayList<>();
-	
-	
+	private static List<Factura> baseDatos = new ArrayList<>();
+
+	@Override
 	public void insertar(Factura factura) {
-		baseDeDatos.add(factura);
-		
+		// TODO Auto-generated method stub
+		baseDatos.add(factura);
 	}
 
 }

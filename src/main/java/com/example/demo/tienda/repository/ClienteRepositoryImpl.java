@@ -5,48 +5,43 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.tienda.modelo.Cliente;
 
 @Repository
-public class ClienteRepositoryImpl  implements IClienteRepository{
+public class ClienteRepositoryImpl implements IClienteRepository {
 
-	
-	//Para simular la conexion de la base de  datos vamos a creaqr una lista
-	//del objeto que estamos utilizando
-	
-	private static List<Cliente> baseDeDatos = new ArrayList<>();
-	
+	private static List<Cliente> baseDatos = new ArrayList<>();
+
 	@Override
-	public void insert(Cliente cliente) {
+	public void insertar(Cliente cliente) {
 		// TODO Auto-generated method stub
-		baseDeDatos.add(cliente);
+		System.out.println("Se inserto el cliente: " + cliente);
+		baseDatos.add(cliente);
+
 	}
 
 	@Override
 	public void actualizar(Cliente cliente) {
-		
 		// TODO Auto-generated method stub
-		Cliente cli= null;
-
-		for (Cliente  c : baseDeDatos) {//la lista que es mi base de datos
-			if (c.getCedula().equals(cliente.getCedula())) { //Si es igual al numero de cuenta hace la comparacion
-				cli=c;
-				//break;
-		
-		}	
-		baseDeDatos.remove(cli);
-		baseDeDatos.add(cliente);
+		Cliente cli = null;
+		for (Cliente c : baseDatos) {
+			if (c.getCedula().equals(cliente.getCedula())) {
+				cli = c;
+			}
+			baseDatos.remove(cli);
+			baseDatos.add(cliente);
 		}
+		System.out.println("Se actualiza la cuenta: " + cliente);
+
 	}
+
 	@Override
 	public Cliente buscar(String cedula) {
 		// TODO Auto-generated method stub
-		
-		Cliente cli= null;
-		for(Cliente c : baseDeDatos) {
-			if(c.getCedula().equals(cedula)) {
-			cli=c;	
+		Cliente cli = null;
+		for (Cliente c : baseDatos) {
+			if (c.getCedula().equals(cedula)) {
+				cli = c;
 			}
 		}
 		return cli;
@@ -55,11 +50,8 @@ public class ClienteRepositoryImpl  implements IClienteRepository{
 	@Override
 	public void eliminar(String cedula) {
 		// TODO Auto-generated method stub
-		//Me falta el borrar
-		Cliente cli=this.buscar(cedula);
-		baseDeDatos.remove(cli);
-		
-		
+		Cliente cli = buscar(cedula);
+		baseDatos.remove(cli);
 	}
 
 }
